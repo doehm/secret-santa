@@ -22,15 +22,11 @@ fam = {
 'Fred'    : 'fred@gmail.com'
 }
 
-#SELECT SECRET SANTAS
-badSelection = 1
-while badSelection == 1:
-	santa = list(np.random.choice(fam.keys(), len(fam), replace = False))
-	recvr = list(np.random.choice(fam.keys(), len(fam), replace = False))
-	badSelection = 0
-	for k in range(len(fam)):
-		if santa[k] == recvr[k]:
-			badSelection = 1
+# SELECT SECRET SANTAS
+santa = list(np.random.choice(list(fam.keys()), len(list(fam.keys())), replace = False))
+recvr = []
+for k in range(-1, len(santa)-1):
+	recvr.append(santa[k])
 			
 #TESTING FOR ACCURATE SELECTIONS
 for k in range(len(fam)):
