@@ -33,10 +33,6 @@ for k in range(-1, len(santa)-1):
 for k in range(len(fam)):
 	print santa[k] != recvr[k]
 			
-# STORE SELECTIONS FOR SAFE KEEPING
-santadf = pd.DataFrame(fam.items(), columns = ['santa', 'recvr'])
-santadf.to_csv('Secret Santa list ' + datem + '.csv')
-	
 # STARTING EMAILS
 smtpObj = smtplib.SMTP('smtp.gmail.com', 587)
 smtpObj.ehlo()
@@ -58,3 +54,7 @@ for k in range(len(fam)):
 
 # QUIT SERVER
 smtpObj.quit()
+
+# STORE SELECTIONS FOR SAFE KEEPING
+santadf = pd.DataFrame({'santa':santa, 'recvr':recvr})
+santadf.to_csv('Secret Santa list ' + datem + '.csv')
